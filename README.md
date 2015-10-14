@@ -12,7 +12,7 @@ $ npm install mongoose-readonly
 
 ```javascript
 var Mongoose = require('mongoose');
-var MongooseReadonly = require('mongoose-readonly');
+var MongooseReadonly = require('./lib');
 
 Mongoose.connect('mongodb://localhost/my-database', function (err) {
 
@@ -25,7 +25,7 @@ Mongoose.connect('mongodb://localhost/my-database', function (err) {
 
         // This path only update when execute the method findByOneAndUpdate,
         // findByIdAndUpdate, or update
-        counter: {              
+        counter: {
             type: Number,
             readonly: true,
             default: 0
@@ -44,11 +44,14 @@ Mongoose.connect('mongodb://localhost/my-database', function (err) {
 
     model.save(function (err, model) {
 
-        Model.findByIdAndUpdate(user.id, { $inc: { counter: 1 } }, { new: true}, function (err, _model) {
+        Model.findByIdAndUpdate(model.id, { $inc: { counter: 1 } }, { new: true}, function (err, _model) {
 
-            console.log(model.counter);     // prints 1
+            console.log(_model.counter);     // prints 1
+            Mongoose.connection.db.dropDatabase();
+            process.exit(0);
         });
     });
+});
 ```
 
 ## Options
