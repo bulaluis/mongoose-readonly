@@ -1,0 +1,34 @@
+{
+  "name": "mongoose-readonly",
+  "version": "1.0.0",
+  "description": "Allow readonly paths in mongoose Schemas",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "./node_modules/lab/bin/lab -c",
+    "test-coverage": "./node_modules/lab/bin/lab -t 100",
+    "test-coverage-html": "./node_modules/lab/bin/lab -c -r html -o ./test/artifacts/coverage.html && open ./test/artifacts/coverage.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bulaluis/mongoose-readonly.git"
+  },
+  "keywords": [
+    "mongoose"
+  ],
+  "author": "Luis Miguel Bula Mora <bulaluis@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bulaluis/mongoose-readonly/issues"
+  },
+  "homepage": "https://github.com/bulaluis/mongoose-readonly#readme",
+  "devDependencies": {
+    "async": "^1.4.2",
+    "code": "^1.5.0",
+    "lab": "^6.2.0",
+    "mongoose": "^4.1.11"
+  },
+  "dependencies": {
+    "hoek": "^2.16.3",
+    "joi": "^6.9.0"
+  }
+}
