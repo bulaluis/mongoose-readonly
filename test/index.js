@@ -100,6 +100,11 @@ lab.experiment('test-mongoose-readonly', function () {
                 Root.findByIdAndUpdate(root.id, { $set: {users: 1000 } }, { new: true}, function (err, _root) {
 
                     Code.expect(_root.users).to.be.equal(1000);
+
+                    _root.set('users', 5000);
+
+                    Code.expect(_root.users).to.be.equal(1000);
+
                     return done();
                 });
             });
